@@ -1,0 +1,31 @@
+from telethon.sync import TelegramClient
+import time
+import os
+
+api_id = 24876867
+api_hash = "6000bc803e9dce8ef5d6db902b7eead6"
+phone = "+2349036518573"
+group_username = "wsotp_news1"
+
+message = """
+**Our previous bots and our channels have been banned,**  
+**so everyone join the new channel and our new votes.**  
+**https://t.me/wsotp200bot?start=u6557571212**  
+**Everyone join our new channel.👇**  
+**https://t.me/wsotp100news**  
+**https://t.me/TGreceiver_uimited**  
+
+**everyone please join now**
+"""
+
+delay_seconds = 30  # প্রতি ৩০ সেকেন্ড পরপর মেসেজ পাঠাবে
+
+with TelegramClient("anon", api_id, api_hash) as client:
+    client.start(phone=phone)
+    while True:
+        try:
+            client.send_message(group_username, message, parse_mode="markdown")
+            print("Message sent!")
+        except Exception as e:
+            print(f"Error: {e}")
+        time.sleep(delay_seconds)
